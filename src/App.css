@@ -23,3 +23,6 @@
     #ec71e2
   );
 }
+::-webkit-input-placeholder {
+  color: #084887;
+}
