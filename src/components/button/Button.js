@@ -3,7 +3,9 @@ import "./Button.css";
 const Button = (props) => {
   return (
     <div>
-      <button className="button-86">{props.label}</button>
+      <button className="button-86" type={props.type}>
+        {props.label}
+      </button>
     </div>
   );
 };

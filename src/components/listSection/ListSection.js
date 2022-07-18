@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import { dummyData } from "../../constant/Constant";
 import Button from "../button/Button";
 import ListItem from "./listItem/ListItem";
+import { useSelector } from "react-redux/";
 
 const ListSection = () => {
-  const [allBirthdayList, setAllBirthdayList] = useState(dummyData);
+  // const [allBirthdayList, setAllBirthdayList] = useState(dummyData);
+  const allBirthdayList = useSelector(
+    (store) => store.birthdayReducer.birthdaysList
+  );
   return (
     <div className="md:w-[80vw] lg:w-[60vw] flex flex-col justify-center max-h-[80vh]">
       <div
