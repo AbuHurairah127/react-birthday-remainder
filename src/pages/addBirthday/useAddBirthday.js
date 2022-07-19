@@ -28,12 +28,23 @@ const useAddBirthday = () => {
     }),
     onSubmit: (values) => {
       let parsedDay = parseInt(values.dob.slice(8, 10));
-      values.day = parsedDay;
       let parsedMonth = parseInt(values.dob.slice(5, 7));
-      values.month = parsedMonth;
       let parsedYear = parseInt(values.dob);
+      let phoneNumber = values.phone.toString();
+      values.day = parsedDay;
+      values.month = parsedMonth;
       values.year = parsedYear;
-      dispatch(addBirthday(values));
+      values.phone = phoneNumber;
+
+      if (values.dob !== "" && values.name !== "" && values.phone !== "") {
+        if (
+          values.phone.charAt(0) === "9" &&
+          values.phone.charAt(1) === "2" &&
+          values.phone.charAt(2) === "3"
+        ) {
+          dispatch(addBirthday(values));
+        }
+      }
     },
   });
   return {

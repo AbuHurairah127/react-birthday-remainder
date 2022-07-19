@@ -19,7 +19,6 @@ const ListItem = (props) => {
         <p>I'm {cYear - friend.year} years old</p>
       </div>
       <div className="right">
-        <p>{friend.gender}</p>
         <a href={`https://wa.me/${friend.phone}`} className="tracking-wide">
           {friend.phone}
         </a>

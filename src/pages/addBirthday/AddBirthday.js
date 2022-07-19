@@ -18,7 +18,7 @@ const AddBirthday = () => {
           </Link>
         </div>
         <div className="flex flex-col h-full">
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
             <div className="flex justify-evenly w-full flex-wrap h-full">
               <div className="flex flex-col w-[35%]">
                 <label

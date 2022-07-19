@@ -8,7 +8,6 @@ let initialState = {
       month: 7,
       year: 2003,
       phone: "923207443537",
-      gender: "Male",
     },
     {
       name: "Abu Bakar Siddique",
@@ -16,7 +15,6 @@ let initialState = {
       month: 1,
       year: 2011,
       phone: "923136718537",
-      gender: "Male",
     },
   ],
 };
@@ -24,7 +22,9 @@ let initialState = {
 const birthdayReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BIRTHDAY: {
+      console.log("redudcer", action.payload);
       let newBirthdayList = [...state.birthdaysList, action.payload];
+      console.log(newBirthdayList);
       return {
         ...state,
         birthdaysList: newBirthdayList,
