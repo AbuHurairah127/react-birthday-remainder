@@ -1,3 +1,5 @@
+import { ADD_BIRTHDAY } from "../constants/types";
+
 let initialState = {
   birthdaysList: [
     {
@@ -21,6 +23,13 @@ let initialState = {
 
 const birthdayReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ADD_BIRTHDAY: {
+      let newBirthdayList = [...state.birthdaysList, action.payload];
+      return {
+        ...state,
+        birthdaysList: newBirthdayList,
+      };
+    }
     default:
       return state;
   }

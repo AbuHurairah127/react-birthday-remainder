@@ -18,7 +18,7 @@ const AddBirthday = () => {
           </Link>
         </div>
         <div className="flex flex-col h-full">
-          <form onSubmit={formik.onSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <div className="flex justify-evenly w-full flex-wrap h-full">
               <div className="flex flex-col w-[35%]">
                 <label
@@ -53,6 +53,8 @@ const AddBirthday = () => {
                   type="date"
                   id="dob"
                   name="dob"
+                  value={formik.values.dob}
+                  onChange={formik.handleChange}
                   className="placeholder:text-[#28629c] bg-transparent border-b-2 border-[#084887] text-[#084887] outline-none px-2 py-1 font-medium"
                 />
               </div>
@@ -80,7 +82,7 @@ const AddBirthday = () => {
               </div>
 
               <div className="self-end flex w-full justify-around my-5">
-                <Button label="Clear" />
+                <Button label="Clear" type="reset" />
                 <Button label="Submit" type="submit" />
               </div>
             </div>

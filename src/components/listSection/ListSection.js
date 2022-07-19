@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { dummyData } from "../../constant/Constant";
 import Button from "../button/Button";
 import ListItem from "./listItem/ListItem";
 import { useSelector } from "react-redux/";
 
 const ListSection = () => {
-  // const [allBirthdayList, setAllBirthdayList] = useState(dummyData);
   const allBirthdayList = useSelector(
     (store) => store.birthdayReducer.birthdaysList
   );
