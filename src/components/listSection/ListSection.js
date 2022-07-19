@@ -1,14 +1,17 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../button/Button";
 import ListItem from "./listItem/ListItem";
 import { useSelector } from "react-redux/";
+import useListSection from "./useListSection";
 
 const ListSection = () => {
+  const { clearAll } = useListSection();
   const allBirthdayList = useSelector(
     (store) => store.birthdayReducer.birthdaysList
   );
-  console.log(allBirthdayList);
   return (
     <div className="md:w-[80vw] lg:w-[60vw] flex flex-col justify-center max-h-[80vh]">
       <div
@@ -23,11 +26,18 @@ const ListSection = () => {
             {allBirthdayList.length} Birthdays today
           </h1>
         </div>
-        <div className="listSectionMain my-2 overflow-auto max-h-[60vh]">
-          {allBirthdayList.map((item, index) => (
-            <ListItem key={index} friend={item} index={index} />
-          ))}
-        </div>
+        {allBirthdayList.length === 0 ? (
+          <span className="text-2xl font-bold text-[#084887]">
+            You have no birthdays to see &#128542;
+          </span>
+        ) : (
+          <div className="listSectionMain my-2 overflow-auto max-h-[60vh]">
+            {allBirthdayList.map((item, index) => (
+              <ListItem key={index} friend={item} index={index} />
+            ))}
+          </div>
+        )}
+
         <div className="listSectionFooter w-full flex justify-center md:justify-between flex-wrap border-t-2 border-[#084887]">
           <div className="m-4">
             <Link to="/add-birthday">
@@ -38,10 +48,11 @@ const ListSection = () => {
             <Button label="All Birthdays List" />
           </div>
           <div className="m-4">
-            <Button label="Clear All" />
+            <Button label="Clear All" event={clearAll} />
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

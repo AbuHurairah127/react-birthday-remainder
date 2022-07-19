@@ -1,4 +1,4 @@
-import { ADD_BIRTHDAY } from "../constants/types";
+import { ADD_BIRTHDAY, CLEAR_ALL } from "../constants/types";
 
 let initialState = {
   birthdaysList: [
@@ -22,9 +22,15 @@ let initialState = {
 const birthdayReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BIRTHDAY: {
-      console.log("redudcer", action.payload);
       let newBirthdayList = [...state.birthdaysList, action.payload];
       console.log(newBirthdayList);
+      return {
+        ...state,
+        birthdaysList: newBirthdayList,
+      };
+    }
+    case CLEAR_ALL: {
+      let newBirthdayList = [];
       return {
         ...state,
         birthdaysList: newBirthdayList,
